@@ -100,6 +100,7 @@ export const logout = async (req, res) => {
 };
 
 export const getMe = async (req,res) => {
+  console.log(req.user)
   try {
 
     const user = await User.findById(req.user._id).select("-password");
