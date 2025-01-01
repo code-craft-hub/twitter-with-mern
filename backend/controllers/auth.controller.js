@@ -3,7 +3,8 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 export const signup = async (req, res) => {
   try {
-    const { fullName, username, email, password } = req.body;
+    let { fullName, username, email, password } = req.body;
+    username = username.toLowerCase();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
